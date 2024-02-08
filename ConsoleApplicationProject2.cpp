@@ -15,10 +15,13 @@ int main()
 
     outFile << fixed << setprecision(2) << showpoint;
 
-    inFile >> lastName >> firstName >> salary >> increase;
-    outFile << lastName << " " << firstName << " " << salary << " " << increase << endl;
+    while (inFile >> lastName >> firstName >> salary >> increase) {
+        double updatedSalary = salary * (1 + increase / 100);
+        outFile << firstName << " " << lastName << " " << updatedSalary << endl;
+    }
 
+    inFile.close();
     outFile.close();
-    return 0;
+    return 0; 
 
 }
